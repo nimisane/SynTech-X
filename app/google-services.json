@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "745846520688",
+    "firebase_url": "https://syntechx-cb876.firebaseio.com",
+    "project_id": "syntechx-cb876",
+    "storage_bucket": "syntechx-cb876.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745846520688:android:811f20dcd19110f4",
+        "android_client_info": {
+          "package_name": "com.rdnational.syntechx.syntech_x"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745846520688-b34s36mkesreubo6sv7bjnon6avhbij4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rdnational.syntechx.syntech_x",
+            "certificate_hash": "6944712560ed22ef98c484e42ee6dcadbec4d56f"
+          }
+        },
+        {
+          "client_id": "745846520688-8tsrr8rpaaru9vm2770r8pqpadiodgo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVxqKlYbTk1Ke95WzHiCEEApIX7zQLrQ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745846520688-8tsrr8rpaaru9vm2770r8pqpadiodgo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
