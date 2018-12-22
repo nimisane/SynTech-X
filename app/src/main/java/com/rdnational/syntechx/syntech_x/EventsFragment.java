@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.azoft.carousellayoutmanager.CarouselLayoutManager;
+import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
+import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -52,10 +55,12 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_events, container, false);
         eventsFragmentlist = new ArrayList<>();
+        final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
+        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         events_recyclerView = rootView.findViewById(R.id.events_recyclerview);
         events_progress = rootView.findViewById(R.id.events_Progress);
         events_recyclerView.setHasFixedSize(true);
-        events_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        events_recyclerView.setLayoutManager(layoutManager);
         no_internet_connection = rootView.findViewById(R.id.home_no_internet);
         refresh = rootView.findViewById(R.id.home_refresh_button);
         refresh.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +129,12 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
                     String no_of_participants = eventsFragmentItems.getParticipants();
                     String phone = eventsFragmentItems.getEvent_head_phone();
                     String event_head_img = eventsFragmentItems.getEvent_head_img();
+                    String color = eventsFragmentItems.getEvent_color();
                     rules = eventsFragmentItems.getEvent_rules();
-                    eventsFragmentlist.add(new EventsFragmentItems(event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules));}
+                    eventsFragmentlist.add(new EventsFragmentItems(event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color));}
                     events_adapter = new EventsFragmentAdapter(getContext(),eventsFragmentlist);
                     events_recyclerView.setAdapter(events_adapter);
+                    events_recyclerView.addOnScrollListener(new CenterScrollListener());
                     events_adapter.setOnItemClickListener(EventsFragment.this);
                     if(eventsFragmentlist.isEmpty())
                     {

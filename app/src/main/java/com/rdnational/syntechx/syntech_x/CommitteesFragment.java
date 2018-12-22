@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
 public class CommitteesFragment extends Fragment implements CommitteeNameAdapter.OnItemClickListener {
@@ -24,6 +25,7 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
     private CommitteeNameAdapter committeeNameAdapter;
     private ArrayList<CommitteeNameItems> committeeNameItems;
     private ProgressBar commProgress;
+    CollapsingToolbarLayout c1;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference coomRef = database.collection("Committees");
     public static final String DATAREF = "headref";
@@ -37,10 +39,12 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
 
         commNameRecyclerview = rootView.findViewById(R.id.committee_recyclerview);
         commProgress = rootView.findViewById(R.id.committee_progressbar);
-       // commProgress.setVisibility(View.GONE);
         commNameRecyclerview.setHasFixedSize(true);
         commNameRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         committeeNameItems = new ArrayList<>();
+        c1 = rootView.findViewById(R.id.home_collapsingToolbarLayout);
+        c1.setCollapsedTitleTextColor(android.graphics.Color.BLACK);
+        c1.setExpandedTitleColor(android.graphics.Color.BLACK);
         loadCommittees();
         return rootView;
     }

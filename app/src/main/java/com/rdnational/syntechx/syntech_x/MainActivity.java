@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity
                     int id = item.getItemId();
 
                     if (id == R.id.home) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();
                         navigationView.setCheckedItem(R.id.nav_home);
                     } else if (id == R.id.events) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new HomeFragment()).commit();
                         navigationView.setCheckedItem(R.id.nav_events);
                     } else if (id == R.id.committees) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new CommitteesFragment()).commit();

@@ -31,13 +31,17 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.goodiebag.carouselpicker.CarouselPicker;
+
 public class HomeFragment extends Fragment {
     TextView no_internet_connection;
     Button refresh;
     ProgressBar homeProgress;
     private RecyclerView home_recyclerView;
+    //private CarouselPicker home_recyclerView;
     private HomeFragmentAdapter events_adapter;
     ArrayList<HomeFragmentItems> homeFragmentlist;
+    //List<CarouselPicker.PickerItem> homeFragmentlist;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference eventsref = database.collection("Events");
     @Nullable
@@ -80,6 +84,7 @@ public class HomeFragment extends Fragment {
                         String eventlogo = homeFragmentItems.getEvent_logo();
                         String eventColor = homeFragmentItems.getEvent_color();
                         homeFragmentlist.add(new HomeFragmentItems(eventlogo, eventName,eventColor));
+                      //  homeFragmentlist.add(new CarouselPicker)
                     }
                 }
                 events_adapter = new HomeFragmentAdapter(getContext(),homeFragmentlist);

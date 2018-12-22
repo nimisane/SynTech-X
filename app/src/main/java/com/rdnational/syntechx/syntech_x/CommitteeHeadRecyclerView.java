@@ -47,7 +47,7 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
         DatabaseRef = i.getStringExtra(DATAREF);
         coomHeadRef = database.collection(DatabaseRef);
         comm_logo = findViewById(R.id.committeeHead_image);
-        comm_name = findViewById(R.id.committeeHead_toolbar);
+       // comm_name = findViewById(R.id.committeeHead_toolbar);
         comm_position = findViewById(R.id.committee_position);
         commHeadProgress = findViewById(R.id.commHead_progress);
 
@@ -60,7 +60,7 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
         commHeadRecyclerview.setLayoutManager(new LinearLayoutManager(this));
         committeeHeadItems = new ArrayList<>();
 
-        comm_name.setTitle("\t"+commName);
+        //comm_name.setTitle("\t"+commName);
         Glide.with(this).load(commImg).into(comm_logo);
         comm_position.setText(commPos);
         loadCommitteeHeads();

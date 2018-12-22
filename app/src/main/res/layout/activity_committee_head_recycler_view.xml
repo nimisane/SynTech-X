@@ -30,17 +30,17 @@
                 android:src="@drawable/committees"
                 app:layout_collapseMode="parallax" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/committeeHead_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Committees"
-                app:titleTextAppearance="@style/ActionBar.nameText"
-                app:titleTextColor="@color/contentblack">
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/committeeHead_toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"-->
+                <!--app:layout_collapseMode="pin"-->
+                <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+                <!--app:title="Committees"-->
+                <!--app:titleTextAppearance="@style/ActionBar.nameText"-->
+                <!--app:titleTextColor="@color/contentblack">-->
 
-            </android.support.v7.widget.Toolbar>
+            <!--</android.support.v7.widget.Toolbar>-->
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

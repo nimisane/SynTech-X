@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
                 app:title="Committees"
                 app:titleTextAppearance="@style/toolbarTextSize"
                 app:titleTextColor="@color/whiteBrighter">

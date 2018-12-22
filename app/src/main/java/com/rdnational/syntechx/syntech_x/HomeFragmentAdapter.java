@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -27,8 +26,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
         public HomeFragmentViewHolder(View itemView){
             super(itemView);
-            home_imageview = itemView.findViewById(R.id.home_layout_image);
-            home_eventName = itemView.findViewById(R.id.home_events);
+            home_imageview = itemView.findViewById(R.id.events_logo);
+            home_eventName = itemView.findViewById(R.id.events_tagline);
         }
     }
 

@@ -1,6 +1,7 @@
 package com.rdnational.syntechx.syntech_x;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ public class EventsFragmentAdapter extends RecyclerView.Adapter<EventsFragmentAd
     private ArrayList<EventsFragmentItems> EventsFragmentList;
     private OnItemClickListner mListner;
     private Context context;
+    String color;
 
     public interface OnItemClickListner {
         void onItemClick(int position);
@@ -66,6 +68,73 @@ public class EventsFragmentAdapter extends RecyclerView.Adapter<EventsFragmentAd
         EventsFragmentItems currentItem = EventsFragmentList.get(position);
         Glide.with(context).load(currentItem.getEvent_logo()).into(holder.events_imageview);
         holder.events_eventagline.setText(currentItem.getEvent_name());
+        color = currentItem.getEvent_color();
+        
+        if(position==0)
+        { holder.events_imageview.setBackgroundColor(Color.parseColor(color));}
+        else if(position==1){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==2){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==3){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==4){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==5){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==6){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==7){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==8){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==9){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==10){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==11){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==12){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==13){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==14){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==15){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==16){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==17){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==18){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==19){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==20){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
+        else if(position==21){
+            holder.events_imageview.setBackgroundColor(Color.parseColor(color));
+        }
     }
 
     @Override

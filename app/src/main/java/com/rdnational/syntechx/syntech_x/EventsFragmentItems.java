@@ -11,12 +11,13 @@ public class EventsFragmentItems {
     private String event_head_phone;
     private String event_head_img;
     List<String> event_rules;
+    private String event_color;
 
 
     public EventsFragmentItems(){
 
     }
-    public EventsFragmentItems(String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules) {
+    public EventsFragmentItems(String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules,String event_color) {
         this.event_logo = eventImages;
         this.event_name = event_name;
         this.Description = Description;
@@ -25,6 +26,7 @@ public class EventsFragmentItems {
         this.event_head_phone = event_head_phone;
         this.event_head_img = event_head_img;
         this.event_rules = event_rules;
+        this.event_color = event_color;
     }
 
     public List<String> getEvent_rules() {
@@ -59,6 +61,10 @@ public class EventsFragmentItems {
         this.event_name = event_name;
     }
 
+    public void setEvent_color(String event_color) {
+        this.event_color = event_color;
+    }
+
     public String getEvent_logo() {
         return event_logo;
     }
@@ -85,5 +91,9 @@ public class EventsFragmentItems {
 
     public String getEvent_head_img() {
         return event_head_img;
+    }
+
+    public String getEvent_color() {
+        return event_color;
     }
 }
