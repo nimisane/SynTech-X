@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,11 +35,13 @@ public class HomeFragment extends Fragment {
     TextView no_internet_connection;
     Button refresh;
     ProgressBar homeProgress;
+    private ArrayList<String> sectionTitle;
     private RecyclerView home_recyclerView;
-    //private CarouselPicker home_recyclerView;
-    private HomeFragmentAdapter events_adapter;
-    ArrayList<HomeFragmentItems> homeFragmentlist;
-    //List<CarouselPicker.PickerItem> homeFragmentlist;
+    //private HomeFragmentAdapter events_adapter;
+    RecyclerViewDataAdapter adapter;
+    ArrayList<HomeSingleItemsModel> homeFragmentlist;
+    private ArrayList<SectionDataModel> allSampleData;
+    SectionDataModel dataModel;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference eventsref = database.collection("Events");
     @Nullable
@@ -46,17 +49,26 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         no_internet_connection = rootView.findViewById(R.id.home_no_internet);
         refresh = rootView.findViewById(R.id.home_refresh_button);
         homeProgress = rootView.findViewById(R.id.home_progressBar);
-        final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
-        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+
+        ///final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
+        //layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         homeFragmentlist = new ArrayList<>();
-        home_recyclerView = rootView.findViewById(R.id.home_recyclerview);
-        home_recyclerView.setHasFixedSize(true);
-        home_recyclerView.setLayoutManager(layoutManager);
+
+        allSampleData = new ArrayList<>();
+        sectionTitle = new ArrayList<>();
+        sectionTitle.add("Glimpes of SynTech-X 2017-18");
+        sectionTitle.add("Events");
+        sectionTitle.add("Winners of SynTech-X 2017-18");
         checkConnection();
         loadhometab();
+        home_recyclerView = rootView.findViewById(R.id.home_recyclerview);
+        home_recyclerView.setHasFixedSize(true);
+        home_recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,44 +79,50 @@ public class HomeFragment extends Fragment {
     }
 
     public void loadhometab(){
-        Task task1 = eventsref.whereLessThan("event_id",18).orderBy("event_id").get();
-        Task task2 = eventsref.whereGreaterThan("event_id",18).orderBy("event_id").get();
-        Task<List<QuerySnapshot>> alltasks = Tasks.whenAllSuccess(task1,task2);
-        alltasks.addOnSuccessListener(new OnSuccessListener<List<QuerySnapshot>>() {
-            @Override
-            public void onSuccess(List<QuerySnapshot> querySnapshots) {
-                homeFragmentlist.clear();
-                for(QuerySnapshot queryDocumentSnapshots : querySnapshots) {
-                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                        HomeFragmentItems homeFragmentItems = documentSnapshot.toObject(HomeFragmentItems.class);
-                        String eventName = homeFragmentItems.getEvent_name();
-                        String eventlogo = homeFragmentItems.getEvent_logo();
-                        String eventColor = homeFragmentItems.getEvent_color();
-                        homeFragmentlist.add(new HomeFragmentItems(eventlogo, eventName,eventColor));
-                      //  homeFragmentlist.add(new CarouselPicker)
+
+       // for(String secName : sectionTitle) {
+        for (int i = 1; i <= 5; i++){
+            dataModel = new SectionDataModel();
+            dataModel.setHeaderTitle("secName"+i);
+
+            Task task1 = eventsref.whereLessThan("event_id", 18).orderBy("event_id").get();
+            Task task2 = eventsref.whereGreaterThan("event_id", 18).orderBy("event_id").get();
+            Task<List<QuerySnapshot>> alltasks = Tasks.whenAllSuccess(task1, task2);
+            alltasks.addOnSuccessListener(new OnSuccessListener<List<QuerySnapshot>>() {
+                @Override
+                public void onSuccess(List<QuerySnapshot> querySnapshots) {
+                    //homeFragmentlist.clear();
+                    for (QuerySnapshot queryDocumentSnapshots : querySnapshots) {
+                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            HomeSingleItemsModel homeSingleItemsModel = documentSnapshot.toObject(HomeSingleItemsModel.class);
+                            String eventName = homeSingleItemsModel.getEvent_name();
+                            String eventlogo = homeSingleItemsModel.getEvent_logo();
+                            String eventColor = homeSingleItemsModel.getEvent_color();
+                            homeFragmentlist.add(new HomeSingleItemsModel(eventlogo, eventName, eventColor));
+                        }
+                    }
+                    dataModel.setAllItemInSection(homeFragmentlist);
+                    allSampleData.add(dataModel);
+                    adapter = new RecyclerViewDataAdapter(allSampleData, getContext());
+
+                    home_recyclerView.setAdapter(adapter);
+                  //  home_recyclerView.addOnScrollListener(new CenterScrollListener());
+                    if (homeFragmentlist.isEmpty()) {
+                        homeProgress.setVisibility(View.VISIBLE);
+                        visible();
+                    } else {
+                        visibilityGone();
+                        homeProgress.setVisibility(View.GONE);
                     }
                 }
-                events_adapter = new HomeFragmentAdapter(getContext(),homeFragmentlist);
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("error", e.getMessage());
+                }
+            });
 
-                home_recyclerView.setAdapter(events_adapter);
-                home_recyclerView.addOnScrollListener(new CenterScrollListener());
-                if(homeFragmentlist.isEmpty())
-                {
-                    homeProgress.setVisibility(View.VISIBLE);
-                    visible();
-                }
-                else
-                {
-                    visibilityGone();
-                    homeProgress.setVisibility(View.GONE);
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("error",e.getMessage());
-            }
-        });
+        }
     }
 
     protected boolean online()

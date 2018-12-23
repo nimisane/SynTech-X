@@ -34,9 +34,9 @@
                 android:layout_height="match_parent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                android:layout_above="@+id/events_tagline">
+                android:layout_above="@+id/photos_tagline">
                 <ImageView
-                    android:id="@+id/events_logo"
+                    android:id="@+id/photos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
@@ -50,7 +50,7 @@
             </android.support.v7.widget.CardView>
 
             <TextView
-                android:id="@+id/events_tagline"
+                android:id="@+id/photos_tagline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

@@ -18,7 +18,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     String color;
     private Context mContext;
-    private ArrayList<HomeFragmentItems> HomeFragmentList;
+    private ArrayList<HomeSingleItemsModel> HomeFragmentList;
 
     public class HomeFragmentViewHolder extends RecyclerView.ViewHolder{
         public ImageView home_imageview;
@@ -26,12 +26,12 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
         public HomeFragmentViewHolder(View itemView){
             super(itemView);
-            home_imageview = itemView.findViewById(R.id.events_logo);
-            home_eventName = itemView.findViewById(R.id.events_tagline);
+            home_imageview = itemView.findViewById(R.id.itemImage);
+            home_eventName = itemView.findViewById(R.id.tvTitle);
         }
     }
 
-    public HomeFragmentAdapter(Context context,ArrayList<HomeFragmentItems> homeFragmentlist){
+    public HomeFragmentAdapter(Context context,ArrayList<HomeSingleItemsModel> homeFragmentlist){
         mContext = context;
         HomeFragmentList = homeFragmentlist;
     }
@@ -45,7 +45,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     @Override
     public void onBindViewHolder(@NonNull HomeFragmentViewHolder holder, int position) {
-        HomeFragmentItems currentItem = HomeFragmentList.get(position);
+        HomeSingleItemsModel currentItem = HomeFragmentList.get(position);
         color = currentItem.getEvent_color();
         //holder.home_imageview.setImageResource(currentItem.getEvent_logo());
        // holder.home_imageview.setBackgroundColor(Color.parseColor(color));

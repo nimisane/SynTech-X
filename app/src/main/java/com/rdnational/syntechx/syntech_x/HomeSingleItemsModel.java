@@ -1,14 +1,14 @@
 package com.rdnational.syntechx.syntech_x;
 
-public class HomeFragmentItems {
+public class HomeSingleItemsModel {
     private String event_logo;
     private String event_name;
     private String event_color;
 
-    public HomeFragmentItems(){
+    public HomeSingleItemsModel(){
 
     }
-    public HomeFragmentItems(String event_logo,String event_name,String event_color){
+    public HomeSingleItemsModel(String event_logo, String event_name, String event_color){
         this.event_logo = event_logo;
         this.event_name = event_name;
         this.event_color = event_color;

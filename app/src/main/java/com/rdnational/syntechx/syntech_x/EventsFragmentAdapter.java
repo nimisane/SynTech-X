@@ -33,8 +33,8 @@ public class EventsFragmentAdapter extends RecyclerView.Adapter<EventsFragmentAd
 
         public EventsViewHolder(View itemView) {
             super(itemView);
-            events_imageview = itemView.findViewById(R.id.events_logo);
-            events_eventagline = itemView.findViewById(R.id.events_tagline);
+            events_imageview = itemView.findViewById(R.id.photos);
+            events_eventagline = itemView.findViewById(R.id.photos_tagline);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
