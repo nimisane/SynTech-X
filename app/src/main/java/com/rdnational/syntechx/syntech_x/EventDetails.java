@@ -35,7 +35,7 @@ public class EventDetails extends AppCompatActivity {
     TextView event_rules;
     String eventHeadImg;
 
-    private SwipeBackLayout swipeBackLayout;;
+    SwipeBackLayout swipeBackActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +54,9 @@ public class EventDetails extends AppCompatActivity {
         event_participants = findViewById(R.id.participants_details);
         event_rules = findViewById(R.id.rules_details);
         headImage = findViewById(R.id.developer_img);
-
-        swipeBackLayout = findViewById(R.id.swipeBack);
-        swipeBackLayout.setEnableFlingBack(true);
-        swipeBackLayout.setDragEdge(SwipeBackLayout.DragEdge.TOP);
-        //swipeBackLayout.setEnablePullToBack(true);
+        swipeBackActivity = findViewById(R.id.swipeBack);
+        swipeBackActivity.setEnablePullToBack(true);
+        swipeBackActivity.setDragEdge(SwipeBackLayout.DragEdge.TOP);
 
         Intent i = getIntent();
         String eventLogo = i.getStringExtra(EVENT_LOGO);
@@ -110,4 +108,5 @@ public class EventDetails extends AppCompatActivity {
         alertadd.setView(view);
         alertadd.show();
     }
+
 }

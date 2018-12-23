@@ -30,9 +30,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import in.goodiebag.carouselpicker.CarouselPicker;
-
 public class HomeFragment extends Fragment {
     TextView no_internet_connection;
     Button refresh;

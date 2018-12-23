@@ -17,6 +17,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.liuguangqiang.swipeback.SwipeBackLayout;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,7 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
     Toolbar comm_name;
     TextView comm_position;
     ProgressBar commHeadProgress;
+    SwipeBackLayout swipeBackLayout;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
 
     private CollectionReference coomHeadRef;
@@ -50,6 +52,9 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
        // comm_name = findViewById(R.id.committeeHead_toolbar);
         comm_position = findViewById(R.id.committee_position);
         commHeadProgress = findViewById(R.id.commHead_progress);
+        swipeBackLayout = findViewById(R.id.swipeBack_committee);
+        swipeBackLayout.setEnablePullToBack(true);
+        swipeBackLayout.setDragEdge(SwipeBackLayout.DragEdge.TOP);
 
         String commName = i.getStringExtra(COMMNAME);
         String commImg = i.getStringExtra(COMMIMAGE);

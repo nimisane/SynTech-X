@@ -25,11 +25,13 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EventDetails" />
+        <activity android:name=".EventDetails"
+            android:theme="@style/Theme.Swipe.Back"/>
         <activity
             android:name=".SocialMediaLinks"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".CommitteeHeadRecyclerView"></activity>
+        <activity android:name=".CommitteeHeadRecyclerView"
+            android:theme="@style/Theme.Swipe.Back"></activity>
     </application>
 
 </manifest>

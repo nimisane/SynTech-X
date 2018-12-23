@@ -28,6 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class EventsFragment extends Fragment implements EventsFragmentAdapter.OnItemClickListner{
     private RecyclerView events_recyclerView;
     private EventsFragmentAdapter events_adapter;

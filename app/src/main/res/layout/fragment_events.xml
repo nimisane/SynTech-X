@@ -7,10 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-    <com.liuguangqiang.swipeback.SwipeBackLayout
-        android:id="@+id/events_recyclerview_swipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/events_recyclerview"
@@ -22,17 +18,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v7.widget.RecyclerView>
-    </com.liuguangqiang.swipeback.SwipeBackLayout>
     <ProgressBar
         android:id="@+id/events_Progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/events_recyclerview_swipe"
+        app:layout_constraintBottom_toBottomOf="@+id/events_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/events_recyclerview_swipe"
+        app:layout_constraintTop_toTopOf="@+id/events_recyclerview"
         app:layout_constraintVertical_bias="0.462" />
 
     <TextView
