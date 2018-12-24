@@ -1,6 +1,9 @@
 package com.rdnational.syntechx.syntech_x;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,6 +30,7 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
     private CommitteeNameAdapter committeeNameAdapter;
     private ArrayList<CommitteeNameItems> committeeNameItems;
     private ProgressBar commProgress;
+    private TextView connection;
     CollapsingToolbarLayout c1;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private CollectionReference coomRef = database.collection("Committees");
@@ -39,12 +45,14 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
 
         commNameRecyclerview = rootView.findViewById(R.id.committee_recyclerview);
         commProgress = rootView.findViewById(R.id.committee_progressbar);
+        connection = rootView.findViewById(R.id.committee_no_internet);
         commNameRecyclerview.setHasFixedSize(true);
         commNameRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         committeeNameItems = new ArrayList<>();
         c1 = rootView.findViewById(R.id.home_collapsingToolbarLayout);
         c1.setCollapsedTitleTextColor(android.graphics.Color.BLACK);
         c1.setExpandedTitleColor(android.graphics.Color.BLACK);
+        checkConnection();
         loadCommittees();
         return rootView;
     }
@@ -68,9 +76,11 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
                 commNameRecyclerview.setAdapter(committeeNameAdapter);
                 committeeNameAdapter.setOnItemClickListener(CommitteesFragment.this);
                 if(committeeNameItems.isEmpty()){
+                    visible();
                     commProgress.setVisibility(View.VISIBLE);
                 }
                 else {
+                    visibilityGone();
                     commProgress.setVisibility(View.GONE);
                 }
             }
@@ -86,5 +96,43 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
         i.putExtra(COMMNAME,clickedItem.getCommitteeName());
         i.putExtra(COMMPOS,clickedItem.getCommitteePosition());
         startActivity(i);
+    }
+
+    protected boolean online()
+    {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+
+        if(info != null && info.isConnectedOrConnecting())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void checkConnection()
+    {
+        if(online())
+        {
+            visibilityGone();
+        }
+        else
+        {
+            visible();
+        }
+    }
+
+    public void visibilityGone()
+    {
+        connection.setVisibility(View.GONE);
+    }
+
+    public void visible()
+    {
+        connection.setVisibility(View.VISIBLE);
+        commProgress.setVisibility(View.GONE);
     }
 }

@@ -45,7 +45,7 @@ public class CommitteeNameAdapter extends RecyclerView.Adapter<CommitteeNameAdap
         String committee_name = currentItem.getCommitteeName();
         String committee_img = currentItem.getCommitteeImage();
 
-        holder.commName.setText("\t\t"+committee_name);
+        holder.commName.setText("\t\t\t"+committee_name);
         Glide.with(context).load(committee_img).into(holder.commImage);
     }
 

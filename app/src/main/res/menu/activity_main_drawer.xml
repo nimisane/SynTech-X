@@ -10,8 +10,8 @@
             android:title="Home" />
         <item
             android:id="@+id/nav_events"
-            android:icon="@drawable/ic_events"
-            android:title="Events" />
+            android:icon="@drawable/ic_photos"
+            android:title="Gallery" />
         <item
             android:id="@+id/nav_committees"
             android:icon="@drawable/ic_committee_black_24dp"

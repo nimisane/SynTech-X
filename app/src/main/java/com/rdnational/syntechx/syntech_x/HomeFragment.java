@@ -17,9 +17,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.azoft.carousellayoutmanager.CarouselLayoutManager;
-import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
-import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -50,7 +47,7 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-        no_internet_connection = rootView.findViewById(R.id.home_no_internet);
+        no_internet_connection = rootView.findViewById(R.id.committee_no_internet);
         refresh = rootView.findViewById(R.id.home_refresh_button);
         homeProgress = rootView.findViewById(R.id.home_progressBar);
 
@@ -162,5 +159,6 @@ public class HomeFragment extends Fragment {
     {
         refresh.setVisibility(View.VISIBLE);
         no_internet_connection.setVisibility(View.VISIBLE);
+        homeProgress.setVisibility(View.GONE);
     }
 }

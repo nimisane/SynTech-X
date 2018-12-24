@@ -61,7 +61,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
         events_progress = rootView.findViewById(R.id.events_Progress);
         events_recyclerView.setHasFixedSize(true);
         events_recyclerView.setLayoutManager(layoutManager);
-        no_internet_connection = rootView.findViewById(R.id.home_no_internet);
+        no_internet_connection = rootView.findViewById(R.id.committee_no_internet);
         refresh = rootView.findViewById(R.id.home_refresh_button);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +111,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     {
         refresh.setVisibility(View.VISIBLE);
         no_internet_connection.setVisibility(View.VISIBLE);
+        events_progress.setVisibility(View.GONE);
     }
 
 

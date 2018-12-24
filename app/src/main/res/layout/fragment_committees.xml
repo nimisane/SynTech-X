@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/home_appbar"
@@ -35,9 +36,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
-                app:title="Committees"
-                app:titleTextAppearance="@style/toolbarTextSize"
-                app:titleTextColor="@color/whiteBrighter">
+                app:title="Committees">
                 <!--<app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
 
             </android.support.v7.widget.Toolbar>
@@ -74,6 +73,18 @@
             app:layout_constraintVertical_bias="1.0">
 
         </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/committee_no_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_connection"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

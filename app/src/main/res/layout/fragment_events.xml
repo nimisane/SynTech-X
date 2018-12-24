@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.462" />
 
     <TextView
-        android:id="@+id/home_no_internet"
+        android:id="@+id/committee_no_internet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No Internet Connection"
@@ -49,6 +49,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_no_internet"
+        app:layout_constraintTop_toBottomOf="@+id/committee_no_internet"
         app:layout_constraintVertical_bias="0.153" />
 </android.support.constraint.ConstraintLayout>
