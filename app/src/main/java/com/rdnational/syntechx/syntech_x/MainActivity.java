@@ -9,12 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +52,7 @@ public class MainActivity extends AppCompatActivity
                         getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();
                         navigationView.setCheckedItem(R.id.nav_home);
                     } else if (id == R.id.events) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new GalleryFragment()).commit();
                         navigationView.setCheckedItem(R.id.nav_events);
                     } else if (id == R.id.committees) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new CommitteesFragment()).commit();
@@ -110,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-           getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new HomeFragment()).commit();
+           getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new GalleryFragment()).commit();
             bottomNavigationView.setSelectedItemId(R.id.home);
         } else if (id == R.id.nav_events) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();

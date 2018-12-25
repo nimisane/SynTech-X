@@ -2,16 +2,16 @@ package com.rdnational.syntechx.syntech_x;
 
 import java.util.ArrayList;
 
-public class SectionDataModel {
+public class GallerySectionDataModel {
 
     private String headerTitle;
-    private ArrayList<HomeSingleItemsModel> allItemInSection;
+    private ArrayList<GalleryItems> allItemInSection;
 
-    public SectionDataModel(){
+    public GallerySectionDataModel(){
 
     }
 
-    public SectionDataModel(String headerTitle, ArrayList<HomeSingleItemsModel> allItemInSection) {
+    public GallerySectionDataModel(String headerTitle, ArrayList<GalleryItems> allItemInSection) {
         this.headerTitle = headerTitle;
         this.allItemInSection = allItemInSection;
     }
@@ -20,7 +20,7 @@ public class SectionDataModel {
         this.headerTitle = headerTitle;
     }
 
-    public void setAllItemInSection(ArrayList<HomeSingleItemsModel> allItemInSection) {
+    public void setAllItemInSection(ArrayList<GalleryItems> allItemInSection) {
         this.allItemInSection = allItemInSection;
     }
 
@@ -28,7 +28,7 @@ public class SectionDataModel {
         return headerTitle;
     }
 
-    public ArrayList<HomeSingleItemsModel> getAllItemInSection() {
+    public ArrayList<GalleryItems> getAllItemInSection() {
         return allItemInSection;
     }
 }

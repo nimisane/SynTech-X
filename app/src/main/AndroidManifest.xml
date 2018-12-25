@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:screenOrientation="portrait"
             android:name=".Splash_Screen"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -22,15 +23,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EventDetails"
             android:theme="@style/Theme.Swipe.Back"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".SocialMediaLinks"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".CommitteeHeadRecyclerView"
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".CommitteeHeadRecyclerView"
             android:theme="@style/Theme.Swipe.Back"></activity>
     </application>
 
