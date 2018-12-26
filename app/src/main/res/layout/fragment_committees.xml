@@ -30,16 +30,6 @@
                 android:src="@drawable/committees"
                 app:layout_collapseMode="parallax" />
 
-            <!--<android.support.v7.widget.Toolbar-->
-                <!--android:id="@+id/committeeHead_toolbar"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="?attr/actionBarSize"-->
-                <!--app:layout_collapseMode="pin"-->
-                <!--android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"-->
-                <!--app:title="Committees">-->
-                <!--<app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
-
-            <!--</android.support.v7.widget.Toolbar>-->
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

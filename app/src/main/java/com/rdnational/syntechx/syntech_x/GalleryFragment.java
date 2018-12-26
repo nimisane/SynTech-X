@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -33,23 +30,21 @@ import java.util.List;
 public class GalleryFragment extends Fragment {
 
     TextView no_internet_connection;
-    Button refresh;
     ProgressBar homeProgress;
     public RecyclerView gallery_recyclerView1;
-
+    public static final String IMAGE = "image";
     private GalleryFragmentAdapter galleryFragmentAdapter;
     private ArrayList<GalleryItems> galleryItemsList1;
 
     List<String> rules;
 
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    private CollectionReference insref = database.collection("Inauguration");
+    private CollectionReference insref = database.collection("Gallery");
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
         no_internet_connection = rootView.findViewById(R.id.committee_no_internet);
-        refresh = rootView.findViewById(R.id.home_refresh_button);
         homeProgress = rootView.findViewById(R.id.home_progressBar);
         final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.VERTICAL, true);
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
@@ -63,13 +58,6 @@ public class GalleryFragment extends Fragment {
 
         checkConnection();
         loadInauguration();
-
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadInauguration();
-            }
-        });
 
         return rootView;
     }
@@ -133,13 +121,12 @@ public class GalleryFragment extends Fragment {
     public void visibilityGone()
     {
         no_internet_connection.setVisibility(View.GONE);
-        refresh.setVisibility(View.GONE);
     }
 
     public void visible()
     {
-        refresh.setVisibility(View.VISIBLE);
         no_internet_connection.setVisibility(View.VISIBLE);
         homeProgress.setVisibility(View.GONE);
     }
+
 }

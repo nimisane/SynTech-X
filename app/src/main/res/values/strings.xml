@@ -9,4 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="check_connection">No Internet Connection</string>
     <string name="call">make a call</string>
+    <string name="privacy_policy">We do not collect any personal or any information about our users nor do we intend to do so.
+        All the information that is available in the application is visible to all the users in same manner and no information is given on basis on their personal identification.
+    </string>
 </resources>

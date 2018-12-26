@@ -1,7 +1,6 @@
 package com.rdnational.syntechx.syntech_x;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +10,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +44,9 @@ public class AboutFragment extends Fragment {
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private DocumentReference aboutref = database.document("AboutUs/About_Us");
     private DocumentReference devref = database.document("AppDeveloper/AppDeveloper");
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class AboutFragment extends Fragment {
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                url="https://www.instagram.com/syntechxrdnc/";
+                url="https://www.instagram.com/rdncsyntechx/";
                 openPage(url);
             }
         });
@@ -112,6 +112,8 @@ public class AboutFragment extends Fragment {
         });
         return rootView;
     }
+
+
     public void openPage(String url){
         pass = new Intent(getContext(),SocialMediaLinks.class);
         pass.putExtra("URL",url);
@@ -155,14 +157,6 @@ public class AboutFragment extends Fragment {
         final View view = factory.inflate(R.layout.developer_info, null);
         final ImageView image= (ImageView) view.findViewById(R.id.developer_img);
         final TextView developerName = view.findViewById(R.id.developer_name);
-//        ImageButton CallDev = view.findViewById(R.id.call_developer);
-//        CallDev.setImageResource(R.drawable.ic_call);
-//        CallDev.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                makeACall("tel:9004863252");
-//            }
-//        });
         alertadd.setTitle("App Developed By:");
 
         devref.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
@@ -184,11 +178,5 @@ public class AboutFragment extends Fragment {
         image.setImageResource(R.drawable.ic_profile);
         alertadd.setView(view);
         alertadd.show();
-    }
-
-    public void makeACall(String phone_no) {
-        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-        callIntent.setData(Uri.parse(phone_no));
-        startActivity(callIntent);
     }
 }

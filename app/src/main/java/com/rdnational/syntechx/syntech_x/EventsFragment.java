@@ -43,7 +43,6 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public static final String EVENT_HEAD_PHONE = "phone";
     public static final String EVENT_HEAD_IMG = "event_head_img";
     TextView no_internet_connection;
-    Button refresh;
     List<String> rules;
     ProgressBar events_progress;
     EventsFragmentItems complete_item_details;
@@ -62,13 +61,6 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
         events_recyclerView.setHasFixedSize(true);
         events_recyclerView.setLayoutManager(layoutManager);
         no_internet_connection = rootView.findViewById(R.id.committee_no_internet);
-        refresh = rootView.findViewById(R.id.home_refresh_button);
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                load_events();
-            }
-        });
         checkConnection();
         load_events();
         return rootView;
@@ -104,12 +96,10 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public void visibilityGone()
     {
         no_internet_connection.setVisibility(View.GONE);
-        refresh.setVisibility(View.GONE);
     }
 
     public void visible()
     {
-        refresh.setVisibility(View.VISIBLE);
         no_internet_connection.setVisibility(View.VISIBLE);
         events_progress.setVisibility(View.GONE);
     }

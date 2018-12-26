@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.liuguangqiang.swipeback.SwipeBackLayout;
+import com.r0adkll.slidr.Slidr;
 
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_DESC;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_HEAD;
@@ -35,8 +35,6 @@ public class EventDetails extends AppCompatActivity {
     TextView event_rules;
     String eventHeadImg;
 
-    SwipeBackLayout swipeBackActivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +45,8 @@ public class EventDetails extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        Slidr.attach(this);
+
         event_logo = findViewById(R.id.events_details_logo);
         event_name = findViewById(R.id.events_details_toolbar);
         event_head = findViewById(R.id.developer_name);
@@ -54,9 +54,6 @@ public class EventDetails extends AppCompatActivity {
         event_participants = findViewById(R.id.participants_details);
         event_rules = findViewById(R.id.rules_details);
         headImage = findViewById(R.id.developer_img);
-        swipeBackActivity = findViewById(R.id.swipeBack);
-        swipeBackActivity.setEnablePullToBack(true);
-        swipeBackActivity.setDragEdge(SwipeBackLayout.DragEdge.TOP);
 
         Intent i = getIntent();
         String eventLogo = i.getStringExtra(EVENT_LOGO);

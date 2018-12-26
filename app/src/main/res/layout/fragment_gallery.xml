@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D0D3D4">
+    android:background="@drawable/back3">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/gallery_recyclerview1"
@@ -38,14 +38,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/home_refresh_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/committee_no_internet"
-        app:layout_constraintVertical_bias="0.153" />
 </android.support.constraint.ConstraintLayout>
