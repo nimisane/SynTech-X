@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:text="What Is It?"
                         android:textColor="@android:color/black"
-                        android:textSize="36sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:text="Objective"
                         android:textColor="@android:color/black"
-                        android:textSize="36sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:text="Events"
                         android:textColor="@android:color/black"
-                        android:textSize="36sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -165,7 +165,7 @@
                         android:paddingTop="16dp"
                         android:text="Special Features"
                         android:textColor="@android:color/black"
-                        android:textSize="36sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -203,7 +203,7 @@
                         android:paddingTop="16dp"
                         android:text="Goal"
                         android:textColor="@android:color/black"
-                        android:textSize="36sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView

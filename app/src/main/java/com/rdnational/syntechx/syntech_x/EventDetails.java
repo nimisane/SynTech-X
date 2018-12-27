@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.r0adkll.slidr.Slidr;
@@ -34,6 +35,9 @@ public class EventDetails extends AppCompatActivity {
     TextView event_participants;
     TextView event_rules;
     String eventHeadImg;
+    RelativeLayout register_button;
+    String register_url;
+    public static final String EXTRAREGISTER = "URL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class EventDetails extends AppCompatActivity {
         event_participants = findViewById(R.id.participants_details);
         event_rules = findViewById(R.id.rules_details);
         headImage = findViewById(R.id.developer_img);
+        register_button = findViewById(R.id.register);
 
         Intent i = getIntent();
         String eventLogo = i.getStringExtra(EVENT_LOGO);
@@ -87,6 +92,16 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 view_image();
+            }
+        });
+
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register_url = "https://docs.google.com/forms/d/e/1FAIpQLSdoi_MX3qadqcog545lE_qoyu7oKZA-LLpk-HHzr_T-W-Hatw/viewform?vc=0&c=0&w=1";
+                Intent i = new Intent(getApplication(),SocialMediaLinks.class);
+                i.putExtra(EXTRAREGISTER,register_url);
+                startActivity(i);
             }
         });
     }

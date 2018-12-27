@@ -3,6 +3,7 @@ package com.rdnational.syntechx.syntech_x;
 import java.util.List;
 
 public class EventsFragmentItems {
+    private int event_id;
     private String event_logo;
     private String Description;
     private String Participants;
@@ -17,7 +18,8 @@ public class EventsFragmentItems {
     public EventsFragmentItems(){
 
     }
-    public EventsFragmentItems(String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules,String event_color) {
+    public EventsFragmentItems(int event_id,String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules,String event_color) {
+        this.event_id = event_id;
         this.event_logo = eventImages;
         this.event_name = event_name;
         this.Description = Description;
@@ -65,6 +67,10 @@ public class EventsFragmentItems {
         this.event_color = event_color;
     }
 
+    public void setEvent_id(int event_id) {
+        this.event_id = event_id;
+    }
+
     public String getEvent_logo() {
         return event_logo;
     }
@@ -95,5 +101,9 @@ public class EventsFragmentItems {
 
     public String getEvent_color() {
         return event_color;
+    }
+
+    public int getEvent_id() {
+        return event_id;
     }
 }

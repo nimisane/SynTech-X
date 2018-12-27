@@ -11,6 +11,7 @@
         android:id="@+id/commHead_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="2dp"
         android:background="?android:attr/selectableItemBackground">
 
     <de.hdodenhof.circleimageview.CircleImageView

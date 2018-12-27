@@ -15,12 +15,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
     BottomNavigationView bottomNavigationView;
     NavigationView navigationView;
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    private DocumentReference policyref = database.document("PrivacyPolicy/privacy");
+    String Key_What="policy";
+    String pp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +55,20 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new EventsFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+
+        policyref.addSnapshotListener(this,new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@javax.annotation.Nullable DocumentSnapshot documentSnapshot, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                if(e!=null){
+                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(documentSnapshot.exists()){
+                    pp = documentSnapshot.getString(Key_What);
+                   // policy.setText(privacy_policy);
+                }
+            }
+        });
 
     }
     android.support.v4.app.Fragment selectedFragment = null;
@@ -97,18 +122,19 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.privacy) {
-            view_image();
+            view_policy();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void view_image(){
+    public void view_policy(){
         AlertDialog.Builder alertadd = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater factory = LayoutInflater.from(MainActivity.this);
         final View view = factory.inflate(R.layout.privacy_policy, null);
-        TextView policy=  view.findViewById(R.id.privacy);
+        final TextView policy =  view.findViewById(R.id.policy);
+        policy.setText(pp);
      //   Glide.with(this).load(eventHeadImg).into(image);
         alertadd.setView(view);
         alertadd.show();

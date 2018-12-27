@@ -51,6 +51,7 @@
 
             <TextView
                 android:id="@+id/photos_tagline"
+                android:padding="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

@@ -77,10 +77,12 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
                 committeeHeadItems.clear();
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     CommitteeHeadItems committeeHeads = documentSnapshot.toObject(CommitteeHeadItems.class);
+
+                    int hid = committeeHeads.getHead_id();
                     String commHeadName = committeeHeads.getCommittee_head_name();
                     String commHeadImg = committeeHeads.getCommittee_head_image();
 
-                    committeeHeadItems.add(new CommitteeHeadItems(commHeadName,commHeadImg));
+                    committeeHeadItems.add(new CommitteeHeadItems(hid,commHeadName,commHeadImg));
                 }
                 committeeHeadAdapter = new CommitteeHeadAdapter(CommitteeHeadRecyclerView.this,committeeHeadItems);
                 commHeadRecyclerview.setAdapter(committeeHeadAdapter);

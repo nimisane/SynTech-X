@@ -1,6 +1,7 @@
 package com.rdnational.syntechx.syntech_x;
 
 public class CommitteeNameItems {
+    private int comm_id;
     private String committeeName;
     private String committeePath;
     private String committeeImage;
@@ -10,11 +11,12 @@ public class CommitteeNameItems {
 
     }
 
-    public CommitteeNameItems(String committeeName, String committeePath, String committeeImage,String committeePosition) {
+    public CommitteeNameItems(int comm_id,String committeeName, String committeePath, String committeeImage,String committeePosition) {
         this.committeeName = committeeName;
         this.committeePath = committeePath;
         this.committeeImage = committeeImage;
         this.committeePosition = committeePosition;
+        this.comm_id = comm_id;
     }
 
     public void setCommitteeName(String committeeName) {
@@ -31,6 +33,14 @@ public class CommitteeNameItems {
 
     public void setCommitteePosition(String committeePosition) {
         this.committeePosition = committeePosition;
+    }
+
+    public void setComm_id(int comm_id) {
+        this.comm_id = comm_id;
+    }
+
+    public int getComm_id() {
+        return comm_id;
     }
 
     public String getCommitteeName() {

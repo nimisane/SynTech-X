@@ -41,7 +41,7 @@
             android:layout_marginRight="10dp"
 
             android:textColor="@color/contentblack"
-            android:text="@string/privacy_policy"
+
             />
     </LinearLayout>
 

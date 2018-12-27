@@ -113,6 +113,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     EventsFragmentItems eventsFragmentItems = documentSnapshot.toObject(EventsFragmentItems.class);
 
+                    int eid = eventsFragmentItems.getEvent_id();
                     String event_name = eventsFragmentItems.getEvent_name();
                     String event_head = eventsFragmentItems.getEvent_head();
                     String event_logo = eventsFragmentItems.getEvent_logo();
@@ -122,7 +123,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
                     String event_head_img = eventsFragmentItems.getEvent_head_img();
                     String color = eventsFragmentItems.getEvent_color();
                     rules = eventsFragmentItems.getEvent_rules();
-                    eventsFragmentlist.add(new EventsFragmentItems(event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color));
+                    eventsFragmentlist.add(new EventsFragmentItems(eid,event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color));
                 }
                     events_adapter = new EventsFragmentAdapter(getContext(),eventsFragmentlist);
                     events_recyclerView.setAdapter(events_adapter);

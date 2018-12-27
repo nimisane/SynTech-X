@@ -14,18 +14,22 @@ import android.widget.ProgressBar;
 
 import com.r0adkll.slidr.Slidr;
 
+import static com.rdnational.syntechx.syntech_x.EventDetails.EXTRAREGISTER;
+
 public class SocialMediaLinks extends AppCompatActivity {
 
     WebView page;
     ProgressBar progressBar;
     String page_url;
+    String registerUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_media_links);
         Slidr.attach(this);
         Intent i = getIntent();
-        page_url = i.getStringExtra("URL");
+       // registerUrl = i.getStringExtra(EXTRAREGISTER);
+        page_url = i.getStringExtra(EXTRAREGISTER);
         page = findViewById(R.id.social_media_links);
         progressBar = findViewById(R.id.progress_bar);
 

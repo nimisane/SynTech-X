@@ -66,11 +66,12 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     CommitteeNameItems committeeName = documentSnapshot.toObject(CommitteeNameItems.class);
 
+                    int cid = committeeName.getComm_id();
                     String committee_name = committeeName.getCommitteeName();
                     String committee_img = committeeName.getCommitteeImage();
                     String committee_path = committeeName.getCommitteePath();
                     String committee_position = committeeName.getCommitteePosition();
-                    committeeNameItems.add(new CommitteeNameItems(committee_name,committee_path,committee_img,committee_position));
+                    committeeNameItems.add(new CommitteeNameItems(cid,committee_name,committee_path,committee_img,committee_position));
                 }
                 committeeNameAdapter = new CommitteeNameAdapter(getContext(),committeeNameItems);
                 commNameRecyclerview.setAdapter(committeeNameAdapter);
