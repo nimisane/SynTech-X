@@ -23,6 +23,7 @@ import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_LOGO;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_NAME;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_PARTICIPANTS;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_RULES;
+import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_VENUE;
 
 public class EventDetails extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class EventDetails extends AppCompatActivity {
     TextView event_desc;
     TextView event_participants;
     TextView event_rules;
+    TextView venue_details;
     String eventHeadImg;
     RelativeLayout register_button;
     String register_url;
@@ -59,6 +61,7 @@ public class EventDetails extends AppCompatActivity {
         event_rules = findViewById(R.id.rules_details);
         headImage = findViewById(R.id.developer_img);
         register_button = findViewById(R.id.register);
+        venue_details = findViewById(R.id.venue_details);
 
         Intent i = getIntent();
         String eventLogo = i.getStringExtra(EVENT_LOGO);
@@ -67,6 +70,7 @@ public class EventDetails extends AppCompatActivity {
         String eventDesc = i.getStringExtra(EVENT_DESC);
         String eventPart = i.getStringExtra(EVENT_PARTICIPANTS);
         String phone = i.getStringExtra(EVENT_HEAD_PHONE);
+        String eventVenue = i.getStringExtra(EVENT_VENUE);
         eventHeadImg = i.getStringExtra(EVENT_HEAD_IMG);
         String eventRules = i.getStringExtra(EVENT_RULES);
 
@@ -76,6 +80,7 @@ public class EventDetails extends AppCompatActivity {
         event_head.setText("\t"+eventHead);
         event_desc.setText(eventDesc);
         event_participants.setText(eventPart);
+        venue_details.setText(eventVenue);
         event_rules.setText("");
         event_rules.setText(eventRules);
 

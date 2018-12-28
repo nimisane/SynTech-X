@@ -42,6 +42,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public static final String EVENT_PARTICIPANTS = "participants";
     public static final String EVENT_HEAD_PHONE = "phone";
     public static final String EVENT_HEAD_IMG = "event_head_img";
+    public static final String EVENT_VENUE = "venue";
     TextView no_internet_connection;
     List<String> rules;
     ProgressBar events_progress;
@@ -122,8 +123,9 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
                     String phone = eventsFragmentItems.getEvent_head_phone();
                     String event_head_img = eventsFragmentItems.getEvent_head_img();
                     String color = eventsFragmentItems.getEvent_color();
+                    String event_venue = eventsFragmentItems.getVenue();
                     rules = eventsFragmentItems.getEvent_rules();
-                    eventsFragmentlist.add(new EventsFragmentItems(eid,event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color));
+                    eventsFragmentlist.add(new EventsFragmentItems(eid,event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color,event_venue));
                 }
                     events_adapter = new EventsFragmentAdapter(getContext(),eventsFragmentlist);
                     events_recyclerView.setAdapter(events_adapter);
@@ -156,6 +158,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
         i.putExtra(EVENT_HEAD_PHONE,complete_item_details.getEvent_head_phone());
         i.putExtra(EVENT_HEAD_IMG,complete_item_details.getEvent_head_img());
         i.putExtra(EVENT_HEAD,complete_item_details.getEvent_head());
+        i.putExtra(EVENT_VENUE,complete_item_details.getVenue());
 
         for (String ev_rules: complete_item_details.getEvent_rules()){
             eventRules += ev_rules+"\n\n";
