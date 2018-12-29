@@ -3,18 +3,17 @@
     package="com.rdnational.syntechx.syntech_x">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
+
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/syntechx_logo_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/syntechx_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Splash_Screen"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,20 +24,15 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EventDetails"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back" />
         <activity
             android:name=".SocialMediaLinks"
-            android:theme="@style/Theme.Swipe.Back"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CommitteeHeadRecyclerView"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back" />
     </application>
 

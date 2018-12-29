@@ -431,7 +431,7 @@
                         android:layout_height="wrap_content"
                         android:text="About Developer"
                         android:textAlignment="center"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
                         android:background="@color/gray"/>
                 </android.support.v7.widget.CardView>

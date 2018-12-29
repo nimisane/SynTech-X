@@ -1,6 +1,7 @@
 package com.rdnational.syntechx.syntech_x;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +27,8 @@ public class SocialMediaLinks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_media_links);
-        Slidr.attach(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+      //  Slidr.attach(this);
         Intent i = getIntent();
        // registerUrl = i.getStringExtra(EXTRAREGISTER);
         page_url = i.getStringExtra(EXTRAREGISTER);

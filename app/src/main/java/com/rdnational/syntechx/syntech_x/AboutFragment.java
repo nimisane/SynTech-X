@@ -65,6 +65,7 @@ public class AboutFragment extends Fragment {
         special_features = rootView.findViewById(R.id.speial_features_detalis);
         goal = rootView.findViewById(R.id.goal_detalis);
 
+
         developer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

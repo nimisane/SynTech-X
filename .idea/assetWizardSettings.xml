@@ -35,8 +35,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="d7dbdd" />
-                            <entry key="outputName" value="ic_group" />
-                            <entry key="sourceFile" value="C:\Users\Nimish\Documents\SyntechX images\committee_images\group.svg" />
+                            <entry key="outputName" value="ic_image" />
+                            <entry key="sourceFile" value="C:\Users\Nimish\Documents\SyntechX images\committee_images\image.svg" />
                           </map>
                         </option>
                       </PersistentState>

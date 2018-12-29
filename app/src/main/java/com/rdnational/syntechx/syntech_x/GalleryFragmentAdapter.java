@@ -42,7 +42,7 @@ public class GalleryFragmentAdapter extends RecyclerView.Adapter<GalleryFragment
     @Override
     public void onBindViewHolder(@NonNull GalleryFragmentViewHolder holder, int position) {
         GalleryItems currentItem = galleryItems.get(position);
-        Glide.with(context).load(currentItem.getPhoto()).apply(new RequestOptions().placeholder(R.drawable.ic_image_replace).error(R.drawable.ic_image_replace)).into(holder.galley_img);
+        Glide.with(context).load(currentItem.getPhoto()).apply(new RequestOptions().placeholder(R.drawable.ic_image).error(R.drawable.ic_image)).into(holder.galley_img);
 
     }
 
