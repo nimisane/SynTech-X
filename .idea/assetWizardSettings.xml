@@ -5,53 +5,7 @@
       <map>
         <entry key="imageWizard">
           <value>
-            <PersistentState>
-              <option name="children">
-                <map>
-                  <entry key="imageAssetPanel">
-                    <value>
-                      <PersistentState>
-                        <option name="children">
-                          <map>
-                            <entry key="launcher">
-                              <value>
-                                <PersistentState>
-                                  <option name="children">
-                                    <map>
-                                      <entry key="foregroundImage">
-                                        <value>
-                                          <PersistentState>
-                                            <option name="values">
-                                              <map>
-                                                <entry key="scalingPercent" value="124" />
-                                              </map>
-                                            </option>
-                                          </PersistentState>
-                                        </value>
-                                      </entry>
-                                    </map>
-                                  </option>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="154360" />
-                                      <entry key="backgroundLayerName" value="ic_syntechx_background" />
-                                      <entry key="foregroundImage" value="C:\Users\Nimish\Documents\syntechx app images\logo_syn.png" />
-                                      <entry key="foregroundLayerName" value="ic_syntechx_foreground" />
-                                      <entry key="outputName" value="syntechx_logo" />
-                                    </map>
-                                  </option>
-                                </PersistentState>
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </PersistentState>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </PersistentState>
+            <PersistentState />
           </value>
         </entry>
         <entry key="vectorWizard">
@@ -69,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_share_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_image_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -80,8 +34,9 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_register" />
-                            <entry key="sourceFile" value="C:\Users\Nimish\Documents\SyntechX images\committee_images\notes.svg" />
+                            <entry key="color" value="d7dbdd" />
+                            <entry key="outputName" value="ic_group" />
+                            <entry key="sourceFile" value="C:\Users\Nimish\Documents\SyntechX images\committee_images\group.svg" />
                           </map>
                         </option>
                       </PersistentState>

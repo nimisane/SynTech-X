@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,43 +108,41 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
 
 
     public void load_events(){
-        eventsref.orderBy("event_id").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                eventsFragmentlist.clear();
-                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    EventsFragmentItems eventsFragmentItems = documentSnapshot.toObject(EventsFragmentItems.class);
+            eventsref.orderBy("event_id").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    eventsFragmentlist.clear();
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        EventsFragmentItems eventsFragmentItems = documentSnapshot.toObject(EventsFragmentItems.class);
 
-                    int eid = eventsFragmentItems.getEvent_id();
-                    String event_name = eventsFragmentItems.getEvent_name();
-                    String event_head = eventsFragmentItems.getEvent_head();
-                    String event_logo = eventsFragmentItems.getEvent_logo();
-                    String desc = eventsFragmentItems.getDescription();
-                    String no_of_participants = eventsFragmentItems.getParticipants();
-                    String phone = eventsFragmentItems.getEvent_head_phone();
-                    String event_head_img = eventsFragmentItems.getEvent_head_img();
-                    String color = eventsFragmentItems.getEvent_color();
-                    String event_venue = eventsFragmentItems.getVenue();
-                    rules = eventsFragmentItems.getEvent_rules();
-                    eventsFragmentlist.add(new EventsFragmentItems(eid,event_logo,event_name,desc,no_of_participants,event_head,phone,event_head_img,rules,color,event_venue));
-                }
-                    events_adapter = new EventsFragmentAdapter(getContext(),eventsFragmentlist);
+                        int eid = eventsFragmentItems.getEvent_id();
+                        String event_name = eventsFragmentItems.getEvent_name();
+                        String event_head = eventsFragmentItems.getEvent_head();
+                        String event_logo = eventsFragmentItems.getEvent_logo();
+                        String desc = eventsFragmentItems.getDescription();
+                        String no_of_participants = eventsFragmentItems.getParticipants();
+                        String phone = eventsFragmentItems.getEvent_head_phone();
+                        String event_head_img = eventsFragmentItems.getEvent_head_img();
+                        String color = eventsFragmentItems.getEvent_color();
+                        String event_venue = eventsFragmentItems.getVenue();
+                        rules = eventsFragmentItems.getEvent_rules();
+                        eventsFragmentlist.add(new EventsFragmentItems(eid, event_logo, event_name, desc, no_of_participants, event_head, phone, event_head_img, rules, color, event_venue));
+                    }
+                    events_adapter = new EventsFragmentAdapter(getContext(), eventsFragmentlist);
                     events_recyclerView.setAdapter(events_adapter);
                     events_recyclerView.addOnScrollListener(new CenterScrollListener());
                     events_adapter.setOnItemClickListener(EventsFragment.this);
-                    if(eventsFragmentlist.isEmpty())
-                    {
+                    if (eventsFragmentlist.isEmpty()) {
                         visible();
                         events_progress.setVisibility(View.VISIBLE);
-                    }
-                    else
-                    {
+                    } else {
                         visibilityGone();
                         events_progress.setVisibility(View.GONE);
                     }
 
-            }
-        });
+                }
+            });
+
     }
 
     @Override

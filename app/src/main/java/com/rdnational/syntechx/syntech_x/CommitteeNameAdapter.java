@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class CommitteeNameAdapter extends RecyclerView.Adapter<CommitteeNameAdap
         String committee_img = currentItem.getCommitteeImage();
 
         holder.commName.setText("\t\t\t"+committee_name);
-        Glide.with(context).load(committee_img).into(holder.commImage);
+        Glide.with(context).load(committee_img).apply(new RequestOptions().placeholder(R.drawable.ic_group).error(R.drawable.ic_group)).into(holder.commImage);
     }
 
     @Override

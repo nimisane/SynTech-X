@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class GalleryFragmentAdapter extends RecyclerView.Adapter<GalleryFragment
     @Override
     public void onBindViewHolder(@NonNull GalleryFragmentViewHolder holder, int position) {
         GalleryItems currentItem = galleryItems.get(position);
-        Glide.with(context).load(currentItem.getPhoto()).into(holder.galley_img);
+        Glide.with(context).load(currentItem.getPhoto()).apply(new RequestOptions().placeholder(R.drawable.ic_image_replace).error(R.drawable.ic_image_replace)).into(holder.galley_img);
 
     }
 

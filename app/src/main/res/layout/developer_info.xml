@@ -18,7 +18,7 @@
             android:layout_height="120dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_profile"
+            android:src="@drawable/ic_user"
             app:layout_constraintBottom_toTopOf="@+id/developer_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

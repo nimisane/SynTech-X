@@ -31,18 +31,26 @@
         <TextView
             android:id="@+id/policy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="16sp"
             android:fontFamily="sans-serif"
             android:layout_margin="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-
             android:textColor="@color/contentblack"
 
             />
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Click here to read our privacy policy"
+            android:textSize="16sp"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_light"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

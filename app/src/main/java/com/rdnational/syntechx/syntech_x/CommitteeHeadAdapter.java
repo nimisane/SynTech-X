@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class CommitteeHeadAdapter extends RecyclerView.Adapter<CommitteeHeadAdap
         final String committee_headimg = currentItem.getCommittee_head_image();
 
         holder.commHeadName.setText("\t\t"+committee_headName);
-        Glide.with(context).load(committee_headimg).into(holder.commImg);
+        Glide.with(context).load(committee_headimg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(holder.commImg);
 
         holder.commImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,7 @@ public class CommitteeHeadAdapter extends RecyclerView.Adapter<CommitteeHeadAdap
                 LayoutInflater factory = LayoutInflater.from(context);
                 final View view = factory.inflate(R.layout.view_profile, null);
                 ImageView image= (ImageView) view.findViewById(R.id.view_profile);
-                Glide.with(context).load(committee_headimg).into(image);
+                Glide.with(context).load(committee_headimg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(image);
                 alertadd.setView(view);
                 alertadd.show();
             }

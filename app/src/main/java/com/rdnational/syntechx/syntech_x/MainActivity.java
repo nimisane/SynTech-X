@@ -1,5 +1,6 @@
 package com.rdnational.syntechx.syntech_x;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity
     private DocumentReference policyref = database.document("PrivacyPolicy/privacy");
     String Key_What="policy";
     String pp;
+    String ppLink;
+    String Key_Link="link";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,8 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(documentSnapshot.exists()){
                     pp = documentSnapshot.getString(Key_What);
+
+                    ppLink = documentSnapshot.getString(Key_Link);
                    // policy.setText(privacy_policy);
                 }
             }
@@ -134,7 +139,17 @@ public class MainActivity extends AppCompatActivity
         LayoutInflater factory = LayoutInflater.from(MainActivity.this);
         final View view = factory.inflate(R.layout.privacy_policy, null);
         final TextView policy =  view.findViewById(R.id.policy);
+        final TextView policyLink = view.findViewById(R.id.link);
+
         policy.setText(pp);
+        policyLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication(),SocialMediaLinks.class);
+                i.putExtra("URL",ppLink);
+                startActivity(i);
+            }
+        });
      //   Glide.with(this).load(eventHeadImg).into(image);
         alertadd.setView(view);
         alertadd.show();

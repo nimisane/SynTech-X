@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.r0adkll.slidr.Slidr;
 
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_DESC;
@@ -75,7 +76,7 @@ public class EventDetails extends AppCompatActivity {
         String eventRules = i.getStringExtra(EVENT_RULES);
 
         Glide.with(this).load(eventLogo).into(event_logo);
-        Glide.with(this).load(eventHeadImg).into(headImage);
+        Glide.with(this).load(eventHeadImg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(headImage);
      //   event_name.setTitle(eventName);
         event_head.setText("\t"+eventHead);
         event_desc.setText(eventDesc);
@@ -121,7 +122,7 @@ public class EventDetails extends AppCompatActivity {
         LayoutInflater factory = LayoutInflater.from(EventDetails.this);
         final View view = factory.inflate(R.layout.view_profile, null);
         ImageView image= (ImageView) view.findViewById(R.id.view_profile);
-        Glide.with(this).load(eventHeadImg).into(image);
+        Glide.with(this).load(eventHeadImg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(image);
         alertadd.setView(view);
         alertadd.show();
     }

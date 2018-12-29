@@ -19,7 +19,7 @@
         android:id="@+id/developer_img"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@drawable/ic_profile"
+        android:src="@drawable/ic_user"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

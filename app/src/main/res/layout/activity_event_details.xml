@@ -93,7 +93,7 @@
                             android:layout_height="60dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
-                            android:src="@drawable/ic_profile"
+                            android:src="@drawable/ic_user"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/developer_name"
                             app:layout_constraintStart_toStartOf="parent"

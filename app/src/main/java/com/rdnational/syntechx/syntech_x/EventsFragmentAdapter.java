@@ -66,6 +66,7 @@ public class EventsFragmentAdapter extends RecyclerView.Adapter<EventsFragmentAd
     @Override
     public void onBindViewHolder(EventsViewHolder holder, int position) {
         EventsFragmentItems currentItem = EventsFragmentList.get(position);
+        
         Glide.with(context).load(currentItem.getEvent_logo()).into(holder.events_imageview);
         holder.events_eventagline.setText(currentItem.getEvent_name());
         color = currentItem.getEvent_color();

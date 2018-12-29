@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -171,11 +172,11 @@ public class AboutFragment extends Fragment {
                     devImg = documentSnapshot.getString(DeveloperImag);
 
                     developerName.setText(devName);
-                    Glide.with(getContext()).load(devImg).into(image);
+                    Glide.with(getContext()).load(devImg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(image);
                 }
             }
         });
-        image.setImageResource(R.drawable.ic_profile);
+       // image.setImageResource(R.drawable.ic_profile);
         alertadd.setView(view);
         alertadd.show();
     }
