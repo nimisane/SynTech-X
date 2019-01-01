@@ -40,7 +40,7 @@
                     app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
                     <ImageView
-                        android:id="@+id/committeeHead_image"
+                        android:id="@+id/generalRules_image"
                         android:layout_width="match_parent"
                         android:layout_height="238dp"
                         android:contentDescription="@string/app_name"

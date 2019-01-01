@@ -1,7 +1,6 @@
 package com.rdnational.syntechx.syntech_x;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.r0adkll.slidr.Slidr;
@@ -116,9 +117,13 @@ public class EventDetails extends AppCompatActivity {
     }
 
     public void makeACall(String phone_no){
-        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-        callIntent.setData(Uri.parse(phone_no));
-        startActivity(callIntent);
+        try {
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse(phone_no));
+            startActivity(callIntent);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Call Not Allowed", Toast.LENGTH_SHORT).show();
+        }
     }
     public void view_image(){
         AlertDialog.Builder alertadd = new AlertDialog.Builder(EventDetails.this);

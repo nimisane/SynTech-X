@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.462" />
 
     <TextView
-        android:id="@+id/committee_no_internet"
+        android:id="@+id/scoring_no_internet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No Internet Connection"

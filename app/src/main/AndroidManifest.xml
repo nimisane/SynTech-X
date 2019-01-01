@@ -30,10 +30,15 @@
             android:theme="@style/Theme.Swipe.Back" />
         <activity
             android:name=".SocialMediaLinks"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Swipe.Back" />
         <activity
             android:name=".CommitteeHeadRecyclerView"
             android:theme="@style/Theme.Swipe.Back" />
+        <activity android:name=".Sponsors"
+            android:theme="@style/Theme.Swipe.Back">
+
+        </activity>
     </application>
 
 </manifest>

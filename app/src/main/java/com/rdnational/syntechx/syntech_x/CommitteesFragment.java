@@ -43,9 +43,9 @@ public class CommitteesFragment extends Fragment implements CommitteeNameAdapter
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_committees,container,false);
 
-        commNameRecyclerview = rootView.findViewById(R.id.committee_recyclerview);
-        commProgress = rootView.findViewById(R.id.committee_progressbar);
-        connection = rootView.findViewById(R.id.committee_no_internet);
+        commNameRecyclerview = rootView.findViewById(R.id.generalRulesCard);
+        commProgress = rootView.findViewById(R.id.scoringScheme_progressbar);
+        connection = rootView.findViewById(R.id.scoring_no_internet);
         commNameRecyclerview.setHasFixedSize(true);
         commNameRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         committeeNameItems = new ArrayList<>();

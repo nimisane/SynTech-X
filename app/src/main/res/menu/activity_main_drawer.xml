@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/nav_grp1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
@@ -20,6 +22,25 @@
             android:id="@+id/nav_About"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="About" />
+    </group>
+    <group
+        android:id="@+id/nav_grp2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_score"
+            android:title="Scoring Scheme"
+            android:icon="@drawable/ic_scoreboard"
+            />
+        <item
+            android:id="@+id/nav_generalrules"
+            android:title="General Rules"
+            android:icon="@drawable/ic_rules"
+            />
+        <item
+            android:id="@+id/nav_sponsor"
+            android:title="Our Sponsors"
+            android:icon="@drawable/ic_sponsor"
+            />
 
     </group>
 

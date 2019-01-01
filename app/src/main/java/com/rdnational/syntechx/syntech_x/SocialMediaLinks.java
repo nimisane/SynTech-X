@@ -27,8 +27,8 @@ public class SocialMediaLinks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_media_links);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-      //  Slidr.attach(this);
+       // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        Slidr.attach(this);
         Intent i = getIntent();
        // registerUrl = i.getStringExtra(EXTRAREGISTER);
         page_url = i.getStringExtra(EXTRAREGISTER);

@@ -175,6 +175,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_About) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new AboutFragment()).commit();
             bottomNavigationView.setSelectedItemId(R.id.about);
+        } else if (id == R.id.nav_score) {
+            bottomNavigationView.setSelectedItemId(R.id.home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new ScoringSchemeFragment()).commit();
+        } else if (id == R.id.nav_generalrules) {
+            bottomNavigationView.setSelectedItemId(R.id.home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fagment_layout,new GeneralRulesFragment()).commit();
+        } else if(id == R.id.nav_sponsor){
+            Intent i = new Intent(this,Sponsors.class);
+            startActivity(i);
         }
 
         drawer.closeDrawer(GravityCompat.START);

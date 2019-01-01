@@ -49,7 +49,7 @@ public class CommitteeHeadRecyclerView extends AppCompatActivity {
         Intent i = getIntent();
         DatabaseRef = i.getStringExtra(DATAREF);
         coomHeadRef = database.collection(DatabaseRef);
-        comm_logo = findViewById(R.id.committeeHead_image);
+        comm_logo = findViewById(R.id.generalRules_image);
        // comm_name = findViewById(R.id.committeeHead_toolbar);
         comm_position = findViewById(R.id.committee_position);
         commHeadProgress = findViewById(R.id.commHead_progress);

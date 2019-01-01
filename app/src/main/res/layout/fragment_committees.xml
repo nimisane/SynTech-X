@@ -22,7 +22,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/committeeHead_image"
+                android:id="@+id/generalRules_image"
                 android:layout_width="match_parent"
                 android:layout_height="235dp"
                 android:contentDescription="@string/app_name"
@@ -42,7 +42,7 @@
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:id="@+id/committee_progressbar"
+            android:id="@+id/scoringScheme_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/committee_recyclerview"
+            android:id="@+id/generalRulesCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -65,7 +65,7 @@
         </android.support.v7.widget.RecyclerView>
 
         <TextView
-            android:id="@+id/committee_no_internet"
+            android:id="@+id/scoring_no_internet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/check_connection"

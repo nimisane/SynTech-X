@@ -9,11 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -62,7 +60,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
         events_progress = rootView.findViewById(R.id.events_Progress);
         events_recyclerView.setHasFixedSize(true);
         events_recyclerView.setLayoutManager(layoutManager);
-        no_internet_connection = rootView.findViewById(R.id.committee_no_internet);
+        no_internet_connection = rootView.findViewById(R.id.scoring_no_internet);
         checkConnection();
         load_events();
         return rootView;
