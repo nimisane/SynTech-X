@@ -19,6 +19,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.r0adkll.slidr.Slidr;
 
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_DESC;
+import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_FEES;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_HEAD;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_HEAD_IMG;
 import static com.rdnational.syntechx.syntech_x.EventsFragment.EVENT_HEAD_PHONE;
@@ -39,6 +40,7 @@ public class EventDetails extends AppCompatActivity {
     TextView event_participants;
     TextView event_rules;
     TextView venue_details;
+    TextView event_fees;
     String eventHeadImg;
     RelativeLayout register_button;
     String register_url;
@@ -67,6 +69,7 @@ public class EventDetails extends AppCompatActivity {
         headImage = findViewById(R.id.developer_img);
         register_button = findViewById(R.id.register);
         venue_details = findViewById(R.id.venue_details);
+        event_fees = findViewById(R.id.entry_fees_details);
 
         Intent i = getIntent();
         String eventLogo = i.getStringExtra(EVENT_LOGO);
@@ -78,6 +81,7 @@ public class EventDetails extends AppCompatActivity {
         String eventVenue = i.getStringExtra(EVENT_VENUE);
         eventHeadImg = i.getStringExtra(EVENT_HEAD_IMG);
         String eventRules = i.getStringExtra(EVENT_RULES);
+        String eventFees = i.getStringExtra(EVENT_FEES);
 
         Glide.with(this).load(eventLogo).into(event_logo);
         Glide.with(this).load(eventHeadImg).apply(new RequestOptions().placeholder(R.drawable.ic_user).error(R.drawable.ic_user)).into(headImage);
@@ -86,8 +90,9 @@ public class EventDetails extends AppCompatActivity {
         event_desc.setText(eventDesc);
         event_participants.setText(eventPart);
         venue_details.setText(eventVenue);
-        event_rules.setText("");
+       // event_rules.setText("");
         event_rules.setText(eventRules);
+        event_fees.setText(eventFees);
 
         final String no="tel:"+phone;
         makeacall = findViewById(R.id.call_developer);

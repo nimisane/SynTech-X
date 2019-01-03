@@ -37,6 +37,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public static final String EVENT_NAME = "eventname";
     public static final String EVENT_DESC = "desc";
     public static final String EVENT_RULES = "rules";
+    public static final String EVENT_FEES = "fees";
     public static final String EVENT_LOGO = "event_logo";
     public static final String EVENT_PARTICIPANTS = "participants";
     public static final String EVENT_HEAD_PHONE = "phone";
@@ -44,6 +45,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     public static final String EVENT_VENUE = "venue";
     TextView no_internet_connection;
     List<String> rules;
+    List<String> fees;
     ProgressBar events_progress;
     EventsFragmentItems complete_item_details;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -124,7 +126,8 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
                         String color = eventsFragmentItems.getEvent_color();
                         String event_venue = eventsFragmentItems.getVenue();
                         rules = eventsFragmentItems.getEvent_rules();
-                        eventsFragmentlist.add(new EventsFragmentItems(eid, event_logo, event_name, desc, no_of_participants, event_head, phone, event_head_img, rules, color, event_venue));
+                        fees = eventsFragmentItems.getEntry_fees();
+                        eventsFragmentlist.add(new EventsFragmentItems(eid, event_logo, event_name, desc, no_of_participants, event_head, phone, event_head_img, rules,fees, color, event_venue));
                     }
                     events_adapter = new EventsFragmentAdapter(getContext(), eventsFragmentlist);
                     events_recyclerView.setAdapter(events_adapter);
@@ -146,6 +149,7 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
     @Override
     public void onItemClick(int position) {
         String eventRules="";
+        String entryFees="";
         i = new Intent(getContext(),EventDetails.class);
         complete_item_details = eventsFragmentlist.get(position);
         i.putExtra(EVENT_LOGO,complete_item_details.getEvent_logo());
@@ -160,8 +164,12 @@ public class EventsFragment extends Fragment implements EventsFragmentAdapter.On
         for (String ev_rules: complete_item_details.getEvent_rules()){
             eventRules += ev_rules+"\n\n";
         }
-        i.putExtra(EVENT_RULES, eventRules);
 
+        for(String ev_fees: complete_item_details.getEntry_fees()){
+            entryFees += ev_fees+"\n";
+        }
+        i.putExtra(EVENT_RULES, eventRules);
+        i.putExtra(EVENT_FEES,entryFees);
         startActivity(i);
     }
 }

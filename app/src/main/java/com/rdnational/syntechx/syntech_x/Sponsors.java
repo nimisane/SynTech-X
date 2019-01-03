@@ -32,6 +32,10 @@ public class Sponsors extends AppCompatActivity {
         sRecyclerView = findViewById(R.id.sponsors_recyclerview);
         sRecyclerView.setHasFixedSize(true);
         sRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        int spanCount = 2; // 3 columns
+        int spacing = 55; // 50px
+        boolean includeEdge = true;
+        sRecyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         loadSponsors();
     }
 

@@ -13,13 +13,14 @@ public class EventsFragmentItems {
     private String event_head_img;
     private String venue;
     List<String> event_rules;
+    List<String> entry_fees;
     private String event_color;
 
 
     public EventsFragmentItems(){
 
     }
-    public EventsFragmentItems(int event_id,String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules,String event_color,String venue) {
+    public EventsFragmentItems(int event_id,String eventImages, String event_name,String Description,String Participaints,String event_head,String event_head_phone,String event_head_img,List<String> event_rules,List<String> entry_fees,String event_color,String venue) {
         this.event_id = event_id;
         this.event_logo = eventImages;
         this.event_name = event_name;
@@ -29,6 +30,7 @@ public class EventsFragmentItems {
         this.event_head_phone = event_head_phone;
         this.event_head_img = event_head_img;
         this.event_rules = event_rules;
+        this.entry_fees = entry_fees;
         this.event_color = event_color;
         this.venue = venue;
     }
@@ -116,4 +118,9 @@ public class EventsFragmentItems {
     public String getVenue() {
         return venue;
     }
+
+    public List<String> getEntry_fees() {
+        return entry_fees;
+    }
+
 }
